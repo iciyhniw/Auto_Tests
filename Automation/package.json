@@ -1,0 +1,34 @@
+{
+  "name": "wowcube-web-e2e",
+  "version": "2.0.0",
+  "private": true,
+  "description": "UI-автотести wowcube.com: smoke, functional, visual (Playwright + TypeScript)",
+  "scripts": {
+    "test": "playwright test --project=desktop --project=mobile --project=tablet",
+    "test:smoke": "playwright test tests/smoke --project=desktop --project=mobile --project=tablet",
+    "test:functional": "playwright test tests/functional --project=desktop --project=mobile",
+    "test:p0": "playwright test --project=desktop --project=mobile --project=tablet --grep @p0",
+    "test:p1": "playwright test --project=desktop --project=mobile --grep @p1",
+    "test:desktop": "playwright test --project=desktop",
+    "test:mobile": "playwright test --project=mobile",
+    "test:known": "playwright test --project=desktop --project=mobile --project=tablet --grep @known-issue",
+    "test:visual": "playwright test --project=visual-desktop --project=visual-mobile",
+    "test:visual:update": "playwright test --project=visual-desktop --project=visual-mobile --update-snapshots",
+    "test:headed": "playwright test --project=desktop --headed --workers=1",
+    "test:ui": "playwright test --ui",
+    "test:debug": "playwright test --project=desktop --debug",
+    "report": "playwright show-report",
+    "report:visual": "playwright show-report playwright-report-visual",
+    "codegen": "playwright codegen https://alpha.wowcube.dev",
+    "typecheck": "tsc --noEmit",
+    "install:browsers": "playwright install chromium"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.63.0",
+    "@types/node": "^22.10.0",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=20.12"
+  }
+}
